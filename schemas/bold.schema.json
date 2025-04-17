@@ -1,0 +1,47 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Bold",
+    "description": "Defines a bold encapsulator element",
+    "type": "object",
+    "required": [
+        "type",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the element",
+            "type": "string",
+            "pattern": "bold"
+        },
+        "content": {
+            "description": "The content of the element",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "$ref": "./text.schema.json"
+                },
+                {
+                    "$ref": "./italic.schema.json"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "$ref": "./text.schema.json"
+                            },
+                            {
+                                "$ref": "./italic.schema.json"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,2 +1,3 @@
-# AOON
-Article Open Object Notation
+# ASON
+
+Article Schema Object Notation

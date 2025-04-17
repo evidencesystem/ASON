@@ -1,0 +1,47 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Italic",
+    "description": "Defines an italic encapsulator element",
+    "type": "object",
+    "required": [
+        "type",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the element",
+            "type": "string",
+            "pattern": "italic"
+        },
+        "content": {
+            "description": "The content of the element",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "$ref": "./text.schema.json"
+                },
+                {
+                    "$ref": "./italic.schema.json"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "$ref": "./text.schema.json"
+                            },
+                            {
+                                "$ref": "./italic.schema.json"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
