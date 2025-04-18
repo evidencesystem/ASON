@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Quote",
+    "description": "Defines a quote encapsulator element",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the element",
+            "type": "string",
+            "pattern": "quote"
+        },
+        "content": {
+            "description": "The content of the element",
+            "$ref": "./textual.schema.json"
+        }
+    }
+}

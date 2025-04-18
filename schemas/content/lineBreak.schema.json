@@ -3,6 +3,7 @@
     "title": "Line-break",
     "description": "Defines a line-break element",
     "type": "object",
+    "additionalProperties": false,
     "required": [
         "type"
     ],

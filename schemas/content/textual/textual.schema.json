@@ -1,0 +1,50 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Textual",
+    "description": "Defines a textual element",
+    "anyOf": [
+        {
+            "$ref": "./string.schema.json"
+        },
+        {
+            "$ref": "./bold.schema.json"
+        },
+        {
+            "$ref": "./italic.schema.json"
+        },
+        {
+            "$ref": "./link.schema.json"
+        },
+        {
+            "$ref": "./paragraph.schema.json"
+        },
+        {
+            "$ref": "./code.schema.json"
+        },
+        {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "./string.schema.json"
+                    },
+                    {
+                        "$ref": "./bold.schema.json"
+                    },
+                    {
+                        "$ref": "./italic.schema.json"
+                    },
+                    {
+                        "$ref": "./link.schema.json"
+                    },
+                    {
+                        "$ref": "./paragraph.schema.json"
+                    },
+                    {
+                        "$ref": "./code.schema.json"
+                    }
+                ]
+            }
+        }
+    ]
+}

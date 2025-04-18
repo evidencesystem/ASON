@@ -2,4 +2,6 @@ node_modules
 build
 .env
 .npmrc
+.continue
 pnpm-lock.yaml
+target

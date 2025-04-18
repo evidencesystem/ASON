@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Link",
+    "description": "Defines a link encapsulator element",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "uri",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the element",
+            "type": "string",
+            "pattern": "link"
+        },
+        "uri": {
+            "description": "The URI of the link",
+            "type": "string"
+        },
+        "content": {
+            "description": "The content of the element",
+            "$ref": "./textual.schema.json"
+        }
+    }
+}
