@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Metadata",
+    "description": "Defines an article metadata",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "authors",
+        "createdOn",
+        "tags"
+    ],
+    "properties": {
+        "authors": {
+            "description": "The authors of the article",
+            "type": "array",
+            "items": {
+                "$ref": "metadata/author.schema.json"
+            }
+        },
+        "createdOn": {
+            "description": "The date the article was created",
+            "type": "string"
+        },
+        "tags": {
+            "description": "The tags of the article",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

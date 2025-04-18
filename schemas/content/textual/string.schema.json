@@ -1,0 +1,6 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "String",
+    "description": "Defines a simple string encapsulator element",
+    "type": "string"
+}

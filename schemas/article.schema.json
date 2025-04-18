@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Article",
+    "description": "Defines an article content",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "filename",
+        "title",
+        "content",
+        "metadata"
+    ],
+    "properties": {
+        "filename": {
+            "description": "The filename of the article",
+            "type": "string"
+        },
+        "title": {
+            "description": "The title of the article",
+            "type": "string"
+        },
+        "content": {
+            "$ref": "./content.schema.json"
+        },
+        "metadata": {
+            "$ref": "./metadata.schema.json"
+        }
+    }
+}

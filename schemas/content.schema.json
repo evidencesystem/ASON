@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Content",
+    "description": "Defines an article content",
+    "type": "array",
+    "items": {
+        "anyOf": [
+            {
+                "$ref": "textual.schema.json"
+            },
+            {
+                "$ref": "heading.schema.json"
+            },
+            {
+                "$ref": "lineBreak.schema.json"
+            },
+            {
+                "$ref": "list.schema.json"
+            },
+            {
+                "$ref": "quote.schema.json"
+            }
+        ]
+    }
+}
