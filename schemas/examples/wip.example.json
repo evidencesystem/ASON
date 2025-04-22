@@ -1,462 +1,61 @@
 {
-    "id": "article-001",
-    "title": "How to treat a superficial vein thrombosis of the lower extremity veins if the patient has intermediate risk of VTE?",
+    "$schema": "../article.schema.json",
+    "id": "example-article",
+    "title": "Sample Article Title",
     "content": [
         {
             "type": "section",
+            "heading": {
+                "type": "heading",
+                "level": 1,
+                "content": {
+                    "type": "string",
+                    "content": "Introduction"
+                }
+            },
             "content": [
                 {
-                    "type": "heading",
-                    "level": 2,
+                    "type": "paragraph",
                     "content": {
                         "type": "string",
-                        "content": "Short answer"
+                        "content": "This is the introduction paragraph of the article."
                     }
                 },
                 {
-                    "type": "paragraph",
-                    "content": [
-                        {
-                            "type": "string",
-                            "content": "If superficial vein thrombosis involves an axial lower‑limb superficial vein segment ≥ 5 cm or lies 3–5 cm from a deep‑vein junction and no additional venous thrombo‑embolism risk factors are present, then start prophylactic‑dose anticoagulation for 45 days:"
-                        },
-                        {
-                            "type": "list",
-                            "order": "unordered",
-                            "content": [
-                                {
-                                    "index": 1,
-                                    "content": {
-                                        "type": "string",
-                                        "content": "fondaparinux 2.5 mg subcutaneously once daily"
-                                    }
-                                },
-                                {
-                                    "index": 2,
-                                    "content": {
-                                        "type": "string",
-                                        "content": "or low‑molecular‑weight heparin (dalteparin 5 000 IU subcutaneously every 12 h or enoxaparin 40 mg subcutaneously once daily)"
-                                    }
-                                },
-                                {
-                                    "index": 3,
-                                    "content": {
-                                        "type": "string",
-                                        "content": "or rivaroxaban 10 mg orally once daily"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "string",
-                            "content": "If pain, oedema or erythema persist, also apply class II compression stocking, limb elevation, and cool or warm compresses (avoid non‑steroidal anti‑inflammatory drugs once anticoagulation begins)."
-                        },
-                        {
-                            "type": "string",
-                            "content": "If thrombus propagates (< 3 cm from deep system) or patient carries medical venous thrombo‑embolism risk factors, then switch to full‑dose therapeutic anticoagulation for 3 months."
-                        }
-                    ]
+                    "type": "quote",
+                    "content": {
+                        "type": "string",
+                        "content": "This is a quote."
+                    }
                 }
             ]
         },
         {
             "type": "section",
+            "heading": {
+                "type": "heading",
+                "level": 2,
+                "content": {
+                    "type": "string",
+                    "content": "Main Content"
+                }
+            },
             "content": [
                 {
-                    "type": "heading",
-                    "level": 2,
-                    "content": {
-                        "type": "string",
-                        "content": "contextual_answer"
-                    }
-                },
-                {
-                    "type": "heading",
-                    "level": 3,
-                    "content": {
-                        "type": "string",
-                        "content": "1 Epidemiology and pathophysiology"
-                    }
-                },
-                {
                     "type": "paragraph",
-                    "content": [
-                        {
-                            "type": "string",
-                            "content": "Superficial vein thrombosis of axial veins is more frequent than deep‑vein thrombosis and carries an early risk of deep‑vein thrombosis or pulmonary embolism."
-                        },
-                        {
-                            "type": "string",
-                            "content": "Risk rises when thrombus is ≥ 5 cm or approaches the saphenofemoral or saphenopopliteal junctions."
-                        }
-                    ]
-                },
-                {
-                    "type": "heading",
-                    "level": 3,
                     "content": {
                         "type": "string",
-                        "content": "2 Clinical risk stratification for venous thrombo‑embolism"
+                        "content": "Here is some main content with a code example."
                     }
                 },
                 {
-                    "type": "table",
-                    "content": [
-                        {
-                            "index": 1,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Category"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Criteria"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Immediate thrombo‑embolism risk"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Initial treatment"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "index": 2,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Low"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Axial segment ≤ 5 cm and > 5 cm from deep system"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Low"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Supportive care only"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "index": 3,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Intermediate"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Axial segment ≥ 5 cm or 3–5 cm from deep system, no additional medical risk factors"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Moderate"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Prophylactic‑dose anticoagulation 45 days"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "index": 4,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "High"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Thrombus < 3 cm from deep system, propagation despite prophylaxis, recurrence, or concomitant medical risk factors (previous deep‑vein thrombosis, thrombophilia, cancer)"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "High"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Therapeutic‑dose anticoagulation 3 months"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "heading",
-                    "level": 3,
+                    "type": "code",
+                    "size": "block",
+                    "syntax": "javascript",
                     "content": {
                         "type": "string",
-                        "content": "3 Diagnostic algorithm (decision‑tree)"
+                        "content": "console.log('Hello, World!');"
                     }
-                },
-                {
-                    "type": "paragraph",
-                    "content": [
-                        {
-                            "type": "string",
-                            "content": "Suspected superficial vein thrombosis → duplex ultrasound of superficial and deep systems."
-                        },
-                        {
-                            "type": "string",
-                            "content": "If axial superficial vein thrombosis confirmed, measure length and distance from junctions and assign risk category as above."
-                        },
-                        {
-                            "type": "string",
-                            "content": "If tributary‑only thrombosis → supportive care, follow‑up ultrasound if symptoms progress."
-                        }
-                    ]
-                },
-                {
-                    "type": "heading",
-                    "level": 3,
-                    "content": {
-                        "type": "string",
-                        "content": "4 Treatment of intermediate‑risk superficial vein thrombosis"
-                    }
-                },
-                {
-                    "type": "paragraph",
-                    "content": [
-                        {
-                            "type": "string",
-                            "content": "Exact schemes"
-                        }
-                    ]
-                },
-                {
-                    "type": "table",
-                    "content": [
-                        {
-                            "index": 1,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Drug"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Dose"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Route"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Frequency"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Duration"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "index": 2,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Fondaparinux"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "2.5 mg"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Subcutaneous"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Once daily"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "45 days"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "index": 3,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Dalteparin"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "5 000 international units"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Subcutaneous"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Every 12 hours"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "45 days"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "index": 4,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Enoxaparin"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "40 mg"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Subcutaneous"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Once daily"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "45 days"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "index": 5,
-                            "content": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "type": "string",
-                                        "content": "Rivaroxaban"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "10 mg"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Oral"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "Once daily"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "content": "45 days"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "heading",
-                    "level": 3,
-                    "content": {
-                        "type": "string",
-                        "content": "Supportive measures"
-                    }
-                },
-                {
-                    "type": "paragraph",
-                    "content": [
-                        {
-                            "type": "string",
-                            "content": "Class II or higher graduated compression stocking covering thrombosed segment."
-                        },
-                        {
-                            "type": "string",
-                            "content": "Limb elevation to waist level."
-                        },
-                        {
-                            "type": "string",
-                            "content": "Cool or warm compresses as tolerated."
-                        },
-                        {
-                            "type": "string",
-                            "content": "Avoid non‑steroidal anti‑inflammatory drugs once anticoagulation is started to limit bleeding risk."
-                        }
-                    ]
-                },
-                {
-                    "type": "heading",
-                    "level": 3,
-                    "content": {
-                        "type": "string",
-                        "content": "5 Follow‑up"
-                    }
-                },
-                {
-                    "type": "paragraph",
-                    "content": [
-                        {
-                            "type": "string",
-                            "content": "Reassess clinically at 7–10 days; repeat duplex ultrasound if pain, erythema or cord length increase."
-                        },
-                        {
-                            "type": "string",
-                            "content": "At day 45 obtain D‑dimer; persistent elevation suggests residual thrombus and may justify extended prophylaxis."
-                        }
-                    ]
-                },
-                {
-                    "type": "heading",
-                    "level": 3,
-                    "content": {
-                        "type": "string",
-                        "content": "6 Prognosis"
-                    }
-                },
-                {
-                    "type": "paragraph",
-                    "content": [
-                        {
-                            "type": "string",
-                            "content": "With the above regimen the incidence of thrombo‑embolic complications at 47 days falls from ≈ 6 % to < 1 %."
-                        },
-                        {
-                            "type": "string",
-                            "content": "Recurrence risk rises if anticoagulation is stopped early; full 45‑day course is therefore recommended."
-                        }
-                    ]
                 }
             ]
         }
@@ -464,16 +63,15 @@
     "metadata": {
         "authors": [
             {
-                "id": "author-001",
-                "name": "Author Name"
+                "id": "author-1",
+                "name": "John Doe"
             }
         ],
-        "createdOn": "2023-10-20",
+        "createdOn": "2023-10-01",
         "tags": [
-            "thrombosis",
-            "VTE",
-            "treatment",
-            "guidelines"
+            "sample",
+            "article",
+            "json-schema"
         ]
     }
 }

@@ -60,10 +60,10 @@
                     "type": "string",
                     "pattern": "code"
                 },
-                "scope": {
+                "size": {
                     "description": "The size of the element",
                     "type": "string",
-                    "pattern": "word|block"
+                    "pattern": "(word|block)"
                 },
                 "syntax": {
                     "description": "The language for syntax highlighting",
@@ -369,7 +369,67 @@
                 }
             }
         },
-        "section": {}
+        "section": {
+            "title": "Section",
+            "description": "Defines a section encapsulator element",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "heading",
+                "content"
+            ],
+            "properties": {
+                "type": {
+                    "description": "The type of the element",
+                    "type": "string",
+                    "pattern": "section"
+                },
+                "heading": {
+                    "description": "The heading of the section",
+                    "oneOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "$ref": "#/$defs/heading"
+                        }
+                    ]
+                },
+                "content": {
+                    "description": "The content of the element",
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/string"
+                            },
+                            {
+                                "$ref": "#/$defs/code"
+                            },
+                            {
+                                "$ref": "#/$defs/link"
+                            },
+                            {
+                                "$ref": "#/$defs/paragraph"
+                            },
+                            {
+                                "$ref": "#/$defs/lineBreak"
+                            },
+                            {
+                                "$ref": "#/$defs/quote"
+                            },
+                            {
+                                "$ref": "#/$defs/list"
+                            },
+                            {
+                                "$ref": "#/$defs/table"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
     },
     "title": "Article",
     "description": "Defines an article content",
@@ -388,7 +448,6 @@
             "type": "string"
         },
         "content": {
-            "$def": {},
             "title": "Content",
             "description": "Defines an article content",
             "type": "array",

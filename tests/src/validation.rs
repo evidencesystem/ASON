@@ -31,7 +31,7 @@ pub fn schema() {
 
         // Filter only `.json` files
         if path.extension().map_or(false, |ext| ext == "json") {
-            let file = std::fs::File::open(path).expect("Unable to read file");
+            let file = std::fs::File::open(&path).expect("Unable to read file");
 
             // Optional: Read the file
             let json_object: serde_json::Value =
@@ -39,7 +39,10 @@ pub fn schema() {
             let instance = serde_json::json!(json_object);
 
             match jsonschema::validate(&schema, &instance) {
-                Ok(_) => println!("The schema is valid!"),
+                Ok(_) => {
+                    let s: &str = path.to_str().expect("Path is not valid UTF-8");
+                    println!("The schema {} is valid!", s)
+                }
                 Err(error) => {
                     println!("Validation error at {}: {}", error.instance_path, error);
                 }
