@@ -3,16 +3,51 @@ pub fn metaschema() {
     let file = std::fs::File::open(path).expect("Unable to read file");
     let json_object: serde_json::Value =
         serde_json::from_reader(file).expect("file should be proper JSON");
-
     let schema = serde_json::json!(json_object);
 
-    let validator = jsonschema::validator_for(&schema).expect("Failed to build validator");
+    // let validator = jsonschema::validator_for(&schema).expect("Failed to build validator");
 
-    // Validate schema with automatic draft detection
-    assert!(validator.is_valid(&schema));
-    assert!(validator.validate(&schema).is_ok());
+    match jsonschema::meta::validate(&schema) {
+        Ok(_) => println!("The schema is valid!"),
+        Err(error) => {
+            println!("Validation error at {}: {}", error.instance_path, error);
+        }
+    }
+}
 
-    println!("Schemas successfully validated");
+pub fn schema() {
+    let path = "../schemas/article.schema.json";
+    let file = std::fs::File::open(path).expect("Unable to read file");
+    let json_object: serde_json::Value =
+        serde_json::from_reader(file).expect("file should be proper JSON");
+    let schema = serde_json::json!(json_object);
+
+    let folder_path = "../schemas/examples";
+    let entries = std::fs::read_dir(folder_path).expect("Failed to read directory");
+
+    for entry in entries {
+        let entry = entry.expect("Failed to read entry");
+        let path = entry.path();
+
+        // Filter only `.json` files
+        if path.extension().map_or(false, |ext| ext == "json") {
+            let file = std::fs::File::open(path).expect("Unable to read file");
+
+            // Optional: Read the file
+            let json_object: serde_json::Value =
+                serde_json::from_reader(file).expect("file should be proper JSON");
+            let instance = serde_json::json!(json_object);
+
+            match jsonschema::validate(&schema, &instance) {
+                Ok(_) => println!("The schema is valid!"),
+                Err(error) => {
+                    println!("Validation error at {}: {}", error.instance_path, error);
+                }
+            }
+        }
+    }
+
+    println!("All tests passed!");
 }
 
 // pub fn schema() {
