@@ -180,9 +180,7 @@
                 },
                 "level": {
                     "description": "The level of the heading (1-6)",
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 6
+                    "type": "integer"
                 },
                 "content": {
                     "description": "The content of the element",
@@ -430,7 +428,7 @@
     "title": "Article",
     "description": "Defines an article content",
     "type": "object",
-    "additionalProperties": true,
+    "additionalProperties": false,
     "required": [
         "id",
         "title",
