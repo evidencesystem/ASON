@@ -1,0 +1,56 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "text",
+    "title": "A text node",
+    "description": "Defines a text node with different possible emphasis",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "emphasis",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "text"
+        },
+        "emphasis": {
+            "description": "The emphasis of the node",
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "sub",
+                            "sup",
+                            "bold",
+                            "italic",
+                            "underline",
+                            "code"
+                        ]
+                    }
+                }
+            ]
+        },
+        "content": {
+            "description": "The content of the node",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/text"
+                    }
+                }
+            ]
+        }
+    }
+}

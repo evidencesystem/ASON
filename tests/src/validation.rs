@@ -1,5 +1,5 @@
 pub fn metaschema() {
-    let path = "../schemas/article.schema.json";
+    let path = "../schemas/answerArticle.schema.json";
     let file = std::fs::File::open(path).expect("Unable to read file");
     let json_object: serde_json::Value =
         serde_json::from_reader(file).expect("file should be proper JSON");

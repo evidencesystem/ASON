@@ -1,0 +1,12 @@
+- Generate the structured output  of the content following the json schema of the content. 
+- Links must be treated as references.
+- Follow strictly the json schema. 
+- If a key/value can be null and is chosen to be, add the key with null value. 
+-  You must keep all required fields
+-  You must strictly follow the enums
+- Table body cells must contain paragraphs, not string nodes
+
+
+JSON schema:
+
+Content:  

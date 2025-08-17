@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "list",
+    "title": "A list node",
+    "description": "Defines a list node",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "order",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "list"
+        },
+        "order": {
+            "description": "The order of the list",
+            "type": "string",
+            "enum": [
+                "ordered",
+                "unordered"
+            ]
+        },
+        "content": {
+            "description": "The content of the list",
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "/nodes/text"
+                    },
+                    {
+                        "$ref": "#"
+                    }
+                ]
+            }
+        }
+    }
+}

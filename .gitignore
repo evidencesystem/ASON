@@ -1,7 +1,4 @@
-node_modules
-build
 .env
-.npmrc
 .continue
-pnpm-lock.yaml
+.old
 target
