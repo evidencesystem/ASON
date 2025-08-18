@@ -1,0 +1,102 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "ason",
+    "title": "Article Schema Object Notation",
+    "description": "Defines the schema of an article",
+    "type": "object",
+    "additionalProperties": true,
+    "required": [
+        "title",
+        "abstract",
+        "body",
+        "metadata"
+    ],
+    "properties": {
+        "title": {
+            "description": "The title of the article",
+            "type": "string"
+        },
+        "abstract": {
+            "description": "The abstract of the article",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/section"
+            }
+        },
+        "body": {
+            "description": "The body of the article",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/section"
+            }
+        },
+        "references": {
+            "description": "The references of the article",
+            "type": "array",
+            "items": {
+                "$ref": "/nodes/reference"
+            }
+        },
+        "metadata": {
+            "description": "The metadata of the article",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "id",
+                "publicationDate",
+                "keywords",
+                "authors"
+            ],
+            "properties": {
+                "doi": {
+                    "description": "The doi of the article",
+                    "type": "string"
+                },
+                "pmid": {
+                    "description": "The pmid of the article",
+                    "type": "string"
+                },
+                "publicationDate": {
+                    "description": "The date the article was created",
+                    "type": "string",
+                    "format": "date"
+                },
+                "keywords": {
+                    "description": "The tags of the article",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "authors": {
+                    "description": "The authors of the article",
+                    "type": "array",
+                    "items": {
+                        "description": "Defines an author object",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "idType",
+                            "id",
+                            "name"
+                        ],
+                        "properties": {
+                            "idType": {
+                                "description": "The type id of the author (e.g. orcid)",
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "The id of the author",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "The name of the author",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

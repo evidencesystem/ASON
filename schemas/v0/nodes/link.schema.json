@@ -1,0 +1,35 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "link",
+    "title": "A link node",
+    "description": "Defines a link node",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "uri",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "link"
+        },
+        "uri": {
+            "description": "The URI of the link",
+            "type": "string"
+        },
+        "content": {
+            "description": "The content of the node",
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "$ref": "/nodes/text"
+                }
+            ]
+        }
+    }
+}

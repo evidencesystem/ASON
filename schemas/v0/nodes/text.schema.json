@@ -32,7 +32,8 @@
                             "bold",
                             "italic",
                             "underline",
-                            "code"
+                            "code",
+                            "quote"
                         ]
                     }
                 }
@@ -47,7 +48,14 @@
                 {
                     "type": "array",
                     "items": {
-                        "$ref": "#/$defs/text"
+                        "anyOf": [
+                            {
+                                "$ref": "#"
+                            },
+                            {
+                                "$ref": "/nodes/link"
+                            }
+                        ]
                     }
                 }
             ]

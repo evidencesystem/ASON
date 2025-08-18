@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "section",
+    "title": "A section node",
+    "description": "Defines a section node",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "header",
+        "body"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "section"
+        },
+        "header": {
+            "description": "The header of the section",
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "$ref": "/nodes/header"
+                }
+            ]
+        },
+        "body": {
+            "description": "The body of the section",
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "/nodes/code"
+                    },
+                    {
+                        "$ref": "/nodes/link"
+                    },
+                    {
+                        "$ref": "/nodes/list"
+                    },
+                    {
+                        "$ref": "/nodes/quote"
+                    },
+                    {
+                        "$ref": "/nodes/section"
+                    },
+                    {
+                        "$ref": "/nodes/table"
+                    },
+                    {
+                        "$ref": "/nodes/text"
+                    }
+                ]
+            }
+        }
+    }
+}
