@@ -1,5 +1,5 @@
 pub fn metaschema() {
-    let path = std::path::Path::new("../schemas/v0/ason.json");
+    let path = std::path::Path::new("../schemas//asonSchema.json");
     let content = std::fs::read_to_string(path).unwrap();
     let schema: serde_json::Value = serde_json::from_str(&content).unwrap();
 

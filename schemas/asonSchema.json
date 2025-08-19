@@ -1,0 +1,495 @@
+{
+  "$defs": {
+    "code": {
+      "$id": "code",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a code node",
+      "properties": {
+        "content": {
+          "description": "The string content of the code node",
+          "type": "string"
+        },
+        "language": {
+          "description": "The programming language of the code",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "language",
+        "content"
+      ],
+      "title": "A code node",
+      "type": "object"
+    },
+    "header": {
+      "$id": "header",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a header node",
+      "properties": {
+        "content": {
+          "$ref": "#/$defs/text",
+          "description": "The content of the node"
+        },
+        "level": {
+          "description": "The level of the header (1-6)",
+          "maximum": 6,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "header",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "level",
+        "content"
+      ],
+      "title": "A header node",
+      "type": "object"
+    },
+    "link": {
+      "$id": "link",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a link node",
+      "properties": {
+        "content": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "The content of the node"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "link",
+          "type": "string"
+        },
+        "uri": {
+          "description": "The URI of the link",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "uri",
+        "content"
+      ],
+      "title": "A link node",
+      "type": "object"
+    },
+    "list": {
+      "$id": "list",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a list node",
+      "properties": {
+        "content": {
+          "description": "The content of the list",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/text"
+              },
+              {
+                "$ref": "#"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "order": {
+          "description": "The order of the list",
+          "enum": [
+            "ordered",
+            "unordered"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "list",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "order",
+        "content"
+      ],
+      "title": "A list node",
+      "type": "object"
+    },
+    "quote": {
+      "$id": "quote",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a quote node",
+      "properties": {
+        "content": {
+          "$ref": "#/$defs/text",
+          "description": "The content of the node"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "content"
+      ],
+      "title": "A quote node",
+      "type": "object"
+    },
+    "reference": {
+      "$id": "reference",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a reference node",
+      "properties": {
+        "id": {
+          "description": "The id of the reference",
+          "type": "string"
+        },
+        "idType": {
+          "description": "The type id of the reference",
+          "type": "string"
+        },
+        "label": {
+          "description": "The label of the reference",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "reference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "idType",
+        "id",
+        "label"
+      ],
+      "title": "A reference node",
+      "type": "object"
+    },
+    "section": {
+      "$id": "section",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a section node",
+      "properties": {
+        "body": {
+          "description": "The body of the section",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/code"
+              },
+              {
+                "$ref": "#/$defs/list"
+              },
+              {
+                "$ref": "#/$defs/quote"
+              },
+              {
+                "$ref": "#/$defs/section"
+              },
+              {
+                "$ref": "#/$defs/table"
+              },
+              {
+                "$ref": "#/$defs/text"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "header": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/header"
+            }
+          ],
+          "description": "The header of the section"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "section",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "header",
+        "body"
+      ],
+      "title": "A section node",
+      "type": "object"
+    },
+    "table": {
+      "$id": "table",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a table node",
+      "properties": {
+        "caption": {
+          "$ref": "#/$defs/text",
+          "description": "Caption or title of the table."
+        },
+        "cells": {
+          "description": "Cells of the table",
+          "items": {
+            "additionalProperties": false,
+            "description": "Defines a cell of a table",
+            "properties": {
+              "colIndex": {
+                "description": "The col index of the cell",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "colSpan": {
+                "description": "The col span of the cell",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "content": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/$defs/text"
+                  }
+                ],
+                "description": "The content of the cell"
+              },
+              "label": {
+                "description": "The type of the cell (header, body, footer or anything else)",
+                "type": "string"
+              },
+              "rowIndex": {
+                "description": "The row index of the cell",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "rowSpan": {
+                "description": "The row span of the cell",
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "type",
+              "rowIndex",
+              "rowSpan",
+              "colIndex",
+              "colSpan",
+              "content"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "table",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "caption",
+        "cells"
+      ],
+      "title": "A table node",
+      "type": "object"
+    },
+    "text": {
+      "$id": "text",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Defines a text node with different possible emphasis",
+      "properties": {
+        "content": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#"
+                  },
+                  {
+                    "$ref": "#/$defs/link"
+                  }
+                ]
+              },
+              "type": "array"
+            }
+          ],
+          "description": "The content of the node"
+        },
+        "emphasis": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "items": {
+                "enum": [
+                  "sub",
+                  "sup",
+                  "bold",
+                  "italic",
+                  "underline",
+                  "code",
+                  "quote"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "The emphasis of the node"
+        },
+        "type": {
+          "description": "The type of the node",
+          "pattern": "text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "emphasis",
+        "content"
+      ],
+      "title": "A text node",
+      "type": "object"
+    }
+  },
+  "$id": "ason",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Defines the schema of an article",
+  "properties": {
+    "abstract": {
+      "description": "The abstract of the article",
+      "items": {
+        "$ref": "#/$defs/section"
+      },
+      "type": "array"
+    },
+    "body": {
+      "description": "The body of the article",
+      "items": {
+        "$ref": "#/$defs/section"
+      },
+      "type": "array"
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "description": "The metadata of the article",
+      "properties": {
+        "authors": {
+          "description": "The authors of the article",
+          "items": {
+            "additionalProperties": false,
+            "description": "Defines an author object",
+            "properties": {
+              "id": {
+                "description": "The id of the author",
+                "type": "string"
+              },
+              "idType": {
+                "description": "The type id of the author (e.g. orcid)",
+                "type": "string"
+              },
+              "name": {
+                "description": "The name of the author",
+                "type": "string"
+              }
+            },
+            "required": [
+              "idType",
+              "id",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "doi": {
+          "description": "The doi of the article",
+          "type": "string"
+        },
+        "keywords": {
+          "description": "The tags of the article",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pmid": {
+          "description": "The pmid of the article",
+          "type": "string"
+        },
+        "publicationDate": {
+          "description": "The date the article was created",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "publicationDate",
+        "keywords",
+        "authors"
+      ],
+      "type": "object"
+    },
+    "references": {
+      "description": "The references of the article",
+      "items": {
+        "$ref": "#/$defs/reference"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "The title of the article",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "abstract",
+    "body",
+    "references",
+    "metadata"
+  ],
+  "title": "Article Schema Object Notation",
+  "type": "object"
+}

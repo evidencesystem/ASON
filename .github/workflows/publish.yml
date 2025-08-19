@@ -18,9 +18,10 @@ jobs:
           ref: master
 
       - name: Upload JSON schema files to release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.version.outputs.new_version }}
-          files: "schemas/*/*.json"
+          files: |
+            schemas/asonSchema.json
+            LICENSE
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
