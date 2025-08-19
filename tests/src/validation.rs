@@ -9,10 +9,10 @@ pub fn metaschema() {
     //     reqwest::blocking::get("https://json-schema.org/draft/2020-12/schema")?.json()?;
     // let compiled = jsonschema::compile(&meta_schema_json)?;
 
-    match jsonschema::meta::try_validate(&schema) {
+    match jsonschema::meta::validate(&schema) {
         Ok(_) => println!("The schema is valid!"),
         Err(error) => {
-            println!("Validation error: {}", error);
+            println!("Validation error at {}: {}", error.instance_path, error);
         }
     }
 }
