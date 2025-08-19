@@ -1,0 +1,30 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "header",
+    "title": "A header node",
+    "description": "Defines a header node",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "level",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "header"
+        },
+        "level": {
+            "description": "The level of the header (1-6)",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+        },
+        "content": {
+            "description": "The content of the node",
+            "$ref": "./text.json"
+        }
+    }
+}

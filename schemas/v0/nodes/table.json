@@ -1,0 +1,78 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "table",
+    "title": "A table node",
+    "description": "Defines a table node",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "caption",
+        "cells"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "table"
+        },
+        "caption": {
+            "description": "Caption or title of the table.",
+            "$ref": "./text.json"
+        },
+        "cells": {
+            "description": "Cells of the table",
+            "type": "array",
+            "items": {
+                "description": "Defines a cell of a table",
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "type",
+                    "rowIndex",
+                    "rowSpan",
+                    "colIndex",
+                    "colSpan",
+                    "content"
+                ],
+                "properties": {
+                    "label": {
+                        "description": "The type of the cell (header, body, footer or anything else)",
+                        "type": "string"
+                    },
+                    "rowIndex": {
+                        "description": "The row index of the cell",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "rowSpan": {
+                        "description": "The row span of the cell",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "colIndex": {
+                        "description": "The col index of the cell",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "colSpan": {
+                        "description": "The col span of the cell",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "content": {
+                        "description": "The content of the cell",
+                        "anyOf": [
+                            {
+                                "type": "null"
+                            },
+                            {
+                                "$ref": "./text.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "code",
+    "title": "A code node",
+    "description": "Defines a code node",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "language",
+        "content"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "code"
+        },
+        "language": {
+            "description": "The programming language of the code",
+            "type": "string"
+        },
+        "content": {
+            "description": "The string content of the code node",
+            "type": "string"
+        }
+    }
+}

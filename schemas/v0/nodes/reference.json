@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "reference",
+    "title": "A reference node",
+    "description": "Defines a reference node",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "idType",
+        "id",
+        "label"
+    ],
+    "properties": {
+        "type": {
+            "description": "The type of the node",
+            "type": "string",
+            "pattern": "reference"
+        },
+        "idType": {
+            "description": "The type id of the reference",
+            "type": "string"
+        },
+        "id": {
+            "description": "The id of the reference",
+            "type": "string"
+        },
+        "label": {
+            "description": "The label of the reference",
+            "type": "string"
+        }
+    }
+}
