@@ -4,7 +4,7 @@
     "title": "Article Schema Object Notation",
     "description": "Defines the schema of an article",
     "type": "object",
-    "additionalProperties": true,
+    "additionalProperties": false,
     "required": [
         "title",
         "abstract",
@@ -20,21 +20,21 @@
             "description": "The abstract of the article",
             "type": "array",
             "items": {
-                "$ref": "#/$defs/section"
+                "$ref": "./section.json"
             }
         },
         "body": {
             "description": "The body of the article",
             "type": "array",
             "items": {
-                "$ref": "#/$defs/section"
+                "$ref": "./section.json"
             }
         },
         "references": {
             "description": "The references of the article",
             "type": "array",
             "items": {
-                "$ref": "/nodes/reference"
+                "$ref": "./reference.json"
             }
         },
         "metadata": {

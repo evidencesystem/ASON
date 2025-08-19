@@ -30,7 +30,7 @@
             "items": {
                 "anyOf": [
                     {
-                        "$ref": "/nodes/text"
+                        "$ref": "./text.json"
                     },
                     {
                         "$ref": "#"

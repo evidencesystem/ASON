@@ -24,7 +24,7 @@
         },
         "content": {
             "description": "The content of the node",
-            "$ref": "/nodes/text"
+            "$ref": "./text.json"
         }
     }
 }

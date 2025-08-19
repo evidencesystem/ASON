@@ -53,7 +53,7 @@
                                 "$ref": "#"
                             },
                             {
-                                "$ref": "/nodes/link"
+                                "$ref": "./link.json"
                             }
                         ]
                     }

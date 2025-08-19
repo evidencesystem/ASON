@@ -27,7 +27,7 @@
                     "type": "null"
                 },
                 {
-                    "$ref": "/nodes/text"
+                    "type": "string"
                 }
             ]
         }

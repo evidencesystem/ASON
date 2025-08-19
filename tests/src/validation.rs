@@ -1,20 +1,23 @@
 pub fn metaschema() {
-    let path = "../schemas/answerArticle.schema.json";
-    let file = std::fs::File::open(path).expect("Unable to read file");
-    let json_object: serde_json::Value =
-        serde_json::from_reader(file).expect("file should be proper JSON");
-    let schema = serde_json::json!(json_object);
+    let path = std::path::Path::new("../schemas/v0/ason.json");
+    let content = std::fs::read_to_string(path).unwrap();
+    let schema: serde_json::Value = serde_json::from_str(&content).unwrap();
 
     // let validator = jsonschema::validator_for(&schema).expect("Failed to build validator");
 
-    match jsonschema::meta::validate(&schema) {
+    // let meta_schema_json: serde_json::Value =
+    //     reqwest::blocking::get("https://json-schema.org/draft/2020-12/schema")?.json()?;
+    // let compiled = jsonschema::compile(&meta_schema_json)?;
+
+    match jsonschema::meta::try_validate(&schema) {
         Ok(_) => println!("The schema is valid!"),
         Err(error) => {
-            println!("Validation error at {}: {}", error.instance_path, error);
+            println!("Validation error: {}", error);
         }
     }
 }
 
+#[allow(dead_code)]
 pub fn schema() {
     let path = "../schemas/article.schema.json";
     let file = std::fs::File::open(path).expect("Unable to read file");

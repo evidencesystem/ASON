@@ -5,3 +5,4 @@ The goal of this repository is to have a standardized way to represent articles 
 The format tends to be
 - representation agnostic (no pages, no header/footer)
 - a linear flow of information
+- no dispensable layout information

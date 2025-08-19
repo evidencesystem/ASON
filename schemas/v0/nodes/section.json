@@ -23,7 +23,7 @@
                     "type": "null"
                 },
                 {
-                    "$ref": "/nodes/header"
+                    "$ref": "./header.json"
                 }
             ]
         },
@@ -33,25 +33,22 @@
             "items": {
                 "anyOf": [
                     {
-                        "$ref": "/nodes/code"
+                        "$ref": "./code.json"
                     },
                     {
-                        "$ref": "/nodes/link"
+                        "$ref": "./list.json"
                     },
                     {
-                        "$ref": "/nodes/list"
+                        "$ref": "./quote.json"
                     },
                     {
-                        "$ref": "/nodes/quote"
+                        "$ref": "./section.json"
                     },
                     {
-                        "$ref": "/nodes/section"
+                        "$ref": "./table.json"
                     },
                     {
-                        "$ref": "/nodes/table"
-                    },
-                    {
-                        "$ref": "/nodes/text"
+                        "$ref": "./text.json"
                     }
                 ]
             }
