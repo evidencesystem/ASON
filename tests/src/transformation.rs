@@ -55,13 +55,13 @@ fn flatten_refs(
 }
 
 pub fn flatten() {
-    let path = std::path::Path::new("../schemas/v0/nodes/ason.json");
+    let path = std::path::Path::new("../schemas//nodes/ason.json");
     let content = std::fs::read_to_string(path).unwrap();
     let schema: serde_json::Value = serde_json::from_str(&content).unwrap();
 
     let flattened = inline_refs(schema, path.parent().unwrap());
 
-    let file = std::fs::File::create("../schemas/v0/ason.json").unwrap();
+    let file = std::fs::File::create("../schemas//asonSchema.json").unwrap();
     let _ = serde_json::to_writer_pretty(file, &flattened);
 
     // println!("{}", serde_json::to_string_pretty(&flattened).unwrap());
