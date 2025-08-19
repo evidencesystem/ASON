@@ -9,6 +9,7 @@
         "title",
         "abstract",
         "body",
+        "references",
         "metadata"
     ],
     "properties": {
