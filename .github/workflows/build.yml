@@ -3,7 +3,7 @@ name: Build check
 on:
     push:
         branches:
-            - production
+            - master
 
 jobs: 
     build:
