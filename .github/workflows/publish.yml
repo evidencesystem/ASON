@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: production
+          ref: master
 
       - name: Upload JSON schema files to release
         uses: softprops/action-gh-release@v1
